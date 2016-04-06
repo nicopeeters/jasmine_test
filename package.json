@@ -48,5 +48,15 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [],
+  "scripts": {
+    "build": "gulp --gulpfile test/gulpfile.ts --cwd ./ ionic.build",
+    "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.build.e2e && ./node_modules/protractor/bin/protractor test/protractor.conf.js",
+    "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.karma.debug",
+    "postinstall": "typings install",
+    "start": "ionic serve",
+    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",
+    "test.watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.watch.build",
+    "webdriver-update": "webdriver-manager update"
+  }
 }

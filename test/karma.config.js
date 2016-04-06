@@ -25,11 +25,11 @@ module.exports = function(config) {
       { pattern: 'test/ionic-angular.js', included: false, watched: false },
       { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/ionic-angular/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/ionic-native/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
 
-      'test/test-main.js',
-      'www/build/test/app.spec.js'
+      'test/test-main.js'
     ],
 
     // list of files to exclude
@@ -69,7 +69,11 @@ module.exports = function(config) {
     proxies: {
       // allows us to keep test code separate from app code and still have the references work
       '/base/node_modules/ionic-angular/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
-      '/base/ionic-angular.js': '/base/test/ionic-angular.js'
+      '/base/ionic-angular.js': '/base/test/ionic-angular.js',
+      '/base/ionic-native.js': '/base/node_modules/ionic-native/dist/index.js',
+      '/base/plugins': '/base/node_modules/ionic-native/dist/plugins',
+      '/base/ng1.js': '/base/node_modules/ionic-native/dist/ng1.js',
+      '/base/util.js': '/base/node_modules/ionic-native/dist/util.js'
     },
 
     // level of logging
